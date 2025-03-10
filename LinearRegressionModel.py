@@ -61,7 +61,7 @@ optimizer = torch.optim.SGD(params=model.parameters(), lr=0.01) # lr is the lear
 
 # Training loop
 torch.manual_seed(42)
-epochs = 200
+epochs = 1000
 
 # put data in the target device
 X_train = X_train.to(device)
