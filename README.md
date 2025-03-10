@@ -35,19 +35,47 @@ class LinearRegressionModel(nn.Module):
         return self.linear_layer(x)
 ```
 
-#### Training Process
-- **Loss Function**: Mean Absolute Error (L1Loss)
-- **Optimizer**: Stochastic Gradient Descent (SGD)
-- **Learning Rate**: 0.01
-- **Epochs**: 200
-- **Hardware Acceleration**: CUDA if available
-
 #### Results
 
 ![Linear Regression Results](https://github.com/priyanshuahir000/ByeteSizedPyTorch/blob/main/assets/Images/LinearRegression.png)
+</details>
 
-The model achieves excellent performance in predicting the linear relationship, demonstrating the effectiveness of PyTorch's automatic differentiation and optimization capabilities.
+### 2. Multi-Class Classification Model 🎯
 
+<details>
+<summary>Click to expand</summary>
+
+#### Overview
+A multi-class classification model built using PyTorch to classify data points into four different classes.
+
+#### Features
+- 🌀 Uses synthetic data generated with `make_blobs`
+- 📉 Splits dataset into training and testing sets
+- 🧠 Implements a neural network with multiple hidden layers and ReLU activation
+- 📊 Uses CrossEntropyLoss for classification
+- 💾 Saves and evaluates the trained model
+
+#### Model Architecture
+```python
+class MultiClassClassificationModel(nn.Module):
+    def __init__(self, input_features, output_features, hidden_units=8):
+        super().__init__()
+        self.linear_layer_stack = nn.Sequential(
+            nn.Linear(in_features=input_features, out_features=hidden_units),
+            nn.ReLU(),
+            nn.Linear(in_features=hidden_units, out_features=hidden_units),
+            nn.ReLU(),
+            nn.Linear(in_features=hidden_units, out_features=output_features)
+        )
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        return self.linear_layer_stack(x)
+```
+
+#### Results
+
+![Multi Class Classification Results](https://github.com/priyanshuahir000/ByeteSizedPyTorch/blob/main/assets/Images/MultiClassClassificationModel_1.png)
+![Multi Class Classification Results](https://github.com/priyanshuahir000/ByeteSizedPyTorch/blob/main/assets/Images/MultiClassClassificationModel_2.png)
 </details>
 
 ## 🛠️ Setup and Installation
@@ -75,17 +103,18 @@ Each project is contained in its own Python file. To run a project, simply execu
 
 ```bash
 python LinearRegressionModel.py
+python MultiClassClassificationModel.py
 ```
 
-## 🔮 Future Projects
+## 🐞 Future Projects
 
-- Comming Soon 🙌
+- Coming Soon 🙌
 
 ## 🤝 Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
-## 📄 License
+## 📞 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
@@ -94,3 +123,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 <p align="center">
   Made with ❤️ and PyTorch
 </p>
+
