@@ -76,6 +76,47 @@ class MultiClassClassificationModel(nn.Module):
 
 ![Multi Class Classification Results](https://github.com/priyanshuahir000/ByeteSizedPyTorch/blob/main/assets/Images/MultiClassClassificationModel_1.png)
 ![Multi Class Classification Results](https://github.com/priyanshuahir000/ByeteSizedPyTorch/blob/main/assets/Images/MultiClassClassificationModel_2.png)
+
+</details>
+
+### 3. Binary Classification Model 🔰
+
+<details>
+<summary>Click to expand</summary>
+
+#### Overview
+A binary classification model built using PyTorch to classify data points into two different categories using non-linear decision boundaries.
+
+#### Features
+- 🔵 Uses synthetic circular data generated with `make_circles`
+- 📉 Splits dataset into training and testing sets
+- 🧠 Implements a neural network with multiple hidden layers and ReLU activation
+- 🎯 Uses `BCEWithLogitsLoss` for binary classification
+- 🚀 Utilizes GPU acceleration for training (if available)
+- 📊 Visualizes decision boundaries for both training and testing data
+
+#### Model Architecture
+```python
+class BinaryClassificationModel(nn.Module):
+    def __init__(self, input_features, hidden_units=10, output_features=1):
+        super().__init__()
+        self.layer = nn.Sequential(
+            nn.Linear(in_features=input_features, out_features=hidden_units),
+            nn.ReLU(),
+            nn.Linear(in_features=hidden_units, out_features=hidden_units),
+            nn.ReLU(),
+            nn.Linear(in_features=hidden_units, out_features=output_features),
+        )
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        return self.layer(x)
+```
+
+#### Results
+
+![Binary Classification Results](https://github.com/priyanshuahir000/ByeteSizedPyTorch/blob/main/assets/Images/BinaryClassificationModel_data.png)
+![Binary Classification Results](https://github.com/priyanshuahir000/ByeteSizedPyTorch/blob/main/assets/Images/BinaryClassificationModel_result.png)
+
 </details>
 
 ## 🛠️ Setup and Installation
@@ -104,6 +145,7 @@ Each project is contained in its own Python file. To run a project, simply execu
 ```bash
 python LinearRegressionModel.py
 python MultiClassClassificationModel.py
+python BinaryClassificationModel.py
 ```
 
 ## 🐞 Future Projects
