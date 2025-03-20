@@ -80,7 +80,7 @@ X_blob_test, Y_blob_test = X_blob_test.to(device), Y_blob_test.to(device)
 torch.manual_seed(42)
 torch.cuda.manual_seed(42)
 
-epochs = 100
+epochs = 1000
 
 for epoch in range(epochs):
     model.train()
