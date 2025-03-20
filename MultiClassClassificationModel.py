@@ -66,7 +66,7 @@ loss_fn = nn.CrossEntropyLoss() # CrossEntropyLoss is used for multi-class class
 # CrossEntropyLoss is used for multi-class classification problems where the target labels are integers starting from 0 to C-1 where C is the number of classes.
 # CrossEntropyLoss is used when the model is outputting class probabilities directly.   
 # L1Loss and MSELoss are used for regression problems where the target labels are continuous values.
-optimizer = torch.optim.SGD(params=model.parameters(), lr=0.1) # lr is the learning rate and SGD stands for Stochastic Gradient Descent
+optimizer = torch.optim.SGD(params=model.parameters(), lr=0.3) # lr is the learning rate and SGD stands for Stochastic Gradient Descent
 
 # Change the data to the device
 X_blob_train, Y_blob_train = X_blob_train.to(device), Y_blob_train.to(device)
